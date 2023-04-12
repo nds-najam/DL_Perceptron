@@ -14,11 +14,26 @@ def main(data,modelName,plotName,eta,epochs):
     save_plot(df, model, filename = plotName)
 
 if __name__ == "__main__":
+    ETA = 0.1
+    EPOCHS = 10
+
     OR = {
         "x1": [0,0,1,1],
         "x2": [0,1,0,1],
         "y" : [0,1,1,1]
     }
-    ETA = 0.1
-    EPOCHS = 10
     main(data=OR, modelName="or.model",plotName="or.png", eta=ETA, epochs=EPOCHS)
+
+    AND = {
+        "x1": [0,0,1,1],
+        "x2": [0,1,0,1],
+        "y" : [0,0,0,1]
+    }
+    main(data=AND, modelName="and.model",plotName="and.png", eta=ETA, epochs=EPOCHS)
+
+    XOR = {
+        "x1": [0,0,1,1],
+        "x2": [0,1,0,1],
+        "y" : [0,1,1,0]
+    }
+    main(data=XOR, modelName="xor.model",plotName="xor.png", eta=ETA, epochs=EPOCHS)
