@@ -3,16 +3,15 @@ from utils.model import Perceptron
 import pandas as pd
 
 def main(data,modelName,plotName,eta,epochs):
-    df_OR = pd.DataFrame(data)
-    X, y = prepare_data(df_OR)
-    model_OR = Perceptron(eta=eta, epochs=epochs)
-    model_OR.fit(X,y)
+    df = pd.DataFrame(data)
+    X, y = prepare_data(df)
+    model = Perceptron(eta=eta, epochs=epochs)
+    model.fit(X,y)
 
-    _ = model_OR.total_loss()
+    _ = model.total_loss()
 
-    model_OR.save(filename = modelName, model_dir='model')
-    save_plot(df_OR, model_OR, filename = plotName)
-
+    model.save(filename = modelName, model_dir='model')
+    save_plot(df, model, filename = plotName)
 
 if __name__ == "__main__":
     OR = {
