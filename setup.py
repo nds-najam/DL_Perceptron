@@ -3,8 +3,8 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-PROJECT_NAME = Perceptron_ndsnajam
-USER_NAME = nds-najam
+PROJECT_NAME = 'Perceptron_ndsnajam'
+USER_NAME = 'nds-najam'
 
 setuptools.setup(
     name = "Perceptron_ndsnajam",
