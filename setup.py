@@ -3,12 +3,13 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-PROJECT_NAME = 'Perceptron_ndsnajam'
+PKG_NAME = 'Perceptron_ndsnajam'
 USER_NAME = 'nds-najam'
+PROJECT_NAME = 'Perceptron-ndsnajam'
 
 setuptools.setup(
     name = "Perceptron_ndsnajam",
-    version = "0.0.1",
+    version = "0.0.2",
     author = USER_NAME,
     author_email="najam.iitm@gmail.com",
     description="Perceptron or/and/xor gates package",
