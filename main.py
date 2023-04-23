@@ -25,10 +25,7 @@ def main(data,modelName,plotName,eta,epochs):
     model.save(filename = modelName, model_dir='model')
     save_plot(df, model, filename = plotName)
 
-if __name__ == "__main__":
-    ETA = 0.1
-    EPOCHS = 10
-    gate = 'OR'
+def getData(gate):
     if gate == 'OR':
         DATA = {
             "x1": [0,0,1,1],
@@ -49,10 +46,26 @@ if __name__ == "__main__":
         }
     else:
         logging.info("Bad GATE chosen")
+    return DATA
+
+
+if __name__ == "__main__":
+    ETA = 0.1
+    EPOCHS = 10
+    
     try:
-        logging.info(f">>>>> start training for {gate} gate <<<<<")
-        main(data=DATA, modelName=gate+".model",plotName=gate+".png", eta=ETA, epochs=EPOCHS)
-        logging.info(f">>>>> done training for {gate} gate <<<<<\n\n")
+        logging.info(f">>>>> start training for gates <<<<<")
+        logging.info(f">>>>> Training for OR gate <<<<<")
+        main(data=getData(gate='OR'), modelName="or.model",plotName="or.png", eta=ETA, epochs=EPOCHS)
+        logging.info(f">>>>> done training for OR gate <<<<<\n\n")
+
+        logging.info(f">>>>> Training for AND gate <<<<<")
+        main(data=getData(gate='AND'), modelName="and.model",plotName="and.png", eta=ETA, epochs=EPOCHS)
+        logging.info(f">>>>> done training for AND gate <<<<<\n\n")
+
+        logging.info(f">>>>> Training for XOR gate <<<<<")
+        main(data=getData(gate='XOR'), modelName="xor.model",plotName="xor.png", eta=ETA, epochs=EPOCHS)
+        logging.info(f">>>>> done training for XOR gate <<<<<\n\n")
     except Exception as e:
         logging.exception(e)
         raise e
